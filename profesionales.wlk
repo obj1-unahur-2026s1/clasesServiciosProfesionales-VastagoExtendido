@@ -4,7 +4,7 @@ class ProfesionalUniversitarios{
   const property estudioEnLaFacultadDe // se le asigna una facultad
   const honorariosPorHora
 
-  method puedeTrabajarEnLasProvinciasDe() = estudioEnLaFacultadDe.provincia()
+  method trabajaEnLasProvinciasDe() = estudioEnLaFacultadDe.provincia()
   method honorariosPorHora() = honorariosPorHora
 
 }
@@ -15,7 +15,7 @@ class ProfesionalLitoral{
   
   const property estudioEnLaFacultadDe
 
-  method puedeTrabajarEnLasProvinciasDe() = #{entreRios, santaFe, corrientes}
+  method trabajaEnLasProvinciasDe() = #{entreRios, santaFe, corrientes}
   method honorariosPorHora() = 3000
 
 }
@@ -25,8 +25,9 @@ class ProfesionalLitoral{
 class ProfesionalLibre{
 
   const property estudioEnLaFacultadDe
+  const property trabajaEnLasProvinciasDe
   const property honorariosPorHora
-  const property puedeTrabajarEnLasProvinciasDe
+
 }
 
 
@@ -37,4 +38,5 @@ class ProfesionalLibre{
 class Universidad{
   const property provincia
   const property honorariosPorHora
+
 }

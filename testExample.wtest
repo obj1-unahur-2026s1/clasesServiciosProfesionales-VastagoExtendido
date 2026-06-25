@@ -6,22 +6,67 @@ import empresa.*
 
 describe "testeos xd" {
 
+// UNIVERSIDADES ----------------------------------------------------------------------------------------------------------------------
+
 const universidadSanMartin = new Universidad(provincia = buenosAires, honorariosPorHora = 3500)
 const universidadRosario = new Universidad(provincia = santaFe, honorariosPorHora = 2800)
 const universidadCorrientes = new Universidad(provincia = corrientes, honorariosPorHora = 4200)
 const unahur = new Universidad(provincia = buenosAires, honorariosPorHora = 8800)
 
 
-const leonel = new ProfesionalUniversitarios(estudioEnLaFacultadDe = universidadSanMartin, honorariosPorHora = 1)
+// PROFESIONALES -----------------------------------------------------------------------------------------------------------------------
+
+const leonel = new ProfesionalUniversitarios(estudioEnLaFacultadDe = universidadSanMartin, honorariosPorHora = 2000)
 const melina = new ProfesionalLitoral(estudioEnLaFacultadDe = universidadCorrientes)
-const rocio = new ProfesionalLibre(estudioEnLaFacultadDe = unahur, honorariosPorHora = 5000, puedeTrabajarEnLasProvinciasDe = [santaFe, cordoba, buenosAires])
-const luciana = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 5000, puedeTrabajarEnLasProvinciasDe = [santaFe, cordoba, buenosAires])
+const rocio = new ProfesionalLibre(estudioEnLaFacultadDe = unahur, honorariosPorHora = 5000, trabajaEnLasProvinciasDe = [santaFe, cordoba, buenosAires])
+const luciana = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 3200, trabajaEnLasProvinciasDe = [santaFe, entreRios])
+const daniel = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 2300, trabajaEnLasProvinciasDe = [santaFe, entreRios])
 
 
+// EMPRESAS -----------------------------------------------------------------------------------------------------------------------
+
+const naturgy = new EmpresaDeServicios(contratados = #{daniel, luciana, melina, rocio}, honorarioDeLaEmpresa = 3500)
 
 
+// ------------------------ TEST NUMERO 1 ------------------------------------------------------------------------------------------------
 
-  test "description" {
-    assert.that(1)
+  test "naturgy tiene 2 profesionales que estudiaron en rosario, 1 en corrientes y otro en hurlingham. ninguno sanMartin" {
+    assert.equals(2, naturgy.cantidadDeProfesionalesQueEstudiaronEn(universidadRosario))
+    assert.equals(1, naturgy.cantidadDeProfesionalesQueEstudiaronEn(universidadCorrientes))
+    assert.equals(1, naturgy.cantidadDeProfesionalesQueEstudiaronEn(unahur))
+    assert.equals(0, naturgy.cantidadDeProfesionalesQueEstudiaronEn(universidadSanMartin))
   }
+
+// ------------------------ TEST NUMERO 2 ------------------------------------------------------------------------------------------------
+
+ test "devuelve a rocio como un CONJUNTO del profesional mas caro" {
+    
+    assert.that(naturgy.profesionalesCaros() == #{rocio})
+  }
+
+// ------------------------ TEST NUMERO 3 ------------------------------------------------------------------------------------------------
+
+ test "universidades formadoras, a las de Rosario, Corrientes y Hurlingham." {
+    
+    assert.that(naturgy.universidadesFormadoras() == #{universidadRosario, unahur , universidadCorrientes})
+  }
+
+// ------------------------ TEST NUMERO 4 ------------------------------------------------------------------------------------------------
+
+ test "como profesional más barato a daniel" {
+    
+    assert.that(naturgy.elProfesionalMasBarato() == daniel)
+  }
+
+
+
+
+
+
+
+
+
+
+
 }
+ 
