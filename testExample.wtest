@@ -1,9 +1,27 @@
-import example.pepita
+import profesionales.*
+import provincias.*
+import empresa.*
 
-describe "group of tests for pepita" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+
+describe "testeos xd" {
+
+const universidadSanMartin = new Universidad(provincia = buenosAires, honorariosPorHora = 3500)
+const universidadRosario = new Universidad(provincia = santaFe, honorariosPorHora = 2800)
+const universidadCorrientes = new Universidad(provincia = corrientes, honorariosPorHora = 4200)
+const unahur = new Universidad(provincia = buenosAires, honorariosPorHora = 8800)
+
+
+const leonel = new ProfesionalUniversitarios(estudioEnLaFacultadDe = universidadSanMartin, honorariosPorHora = 1)
+const melina = new ProfesionalLitoral(estudioEnLaFacultadDe = universidadCorrientes)
+const rocio = new ProfesionalLibre(estudioEnLaFacultadDe = unahur, honorariosPorHora = 5000, puedeTrabajarEnLasProvinciasDe = [santaFe, cordoba, buenosAires])
+const luciana = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 5000, puedeTrabajarEnLasProvinciasDe = [santaFe, cordoba, buenosAires])
+
+
+
+
+
+  test "description" {
+    assert.that(1)
   }
-
 }
