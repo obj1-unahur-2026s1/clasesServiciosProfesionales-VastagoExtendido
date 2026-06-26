@@ -4,6 +4,7 @@ class EmpresaDeServicios{
     
     const contratados
     const honorarioDeLaEmpresa
+    const clientes = #{}
 
     method contratarAlProfesional(unProfesional){contratados.add(unProfesional)}
    
@@ -16,6 +17,22 @@ class EmpresaDeServicios{
     // etapa 2
 
     method puedeSatisfacerAlSolicitante(unSolicitante) = contratados.any({c => unSolicitante.puedeSerAtendidoPorElProfesional(c)})
+
+    // etapa 4
+
+    method darServicioAlSolicitante(unSolicitante) {
+        if( self.puedeSatisfacerAlSolicitante(unSolicitante)){
+            unSolicitante.puedeSerAtendidoPor(contratados).forEach({c => c.consecuenciaDeCobro()})
+            clientes.add(unSolicitante)
+        }
+        
+    }
+
+    method cantidadDeClientes() = clientes.size()
+
+    method tieneComoClienteAlSolicitante(unSolicitante) =  clientes.contains(unSolicitante)
+
+
 
 }
 
