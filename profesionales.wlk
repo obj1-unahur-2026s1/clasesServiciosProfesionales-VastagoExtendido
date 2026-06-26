@@ -4,7 +4,7 @@ class ProfesionalUniversitarios{
   const property estudioEnLaFacultadDe // se le asigna una facultad
   const honorariosPorHora
 
-  method trabajaEnLasProvinciasDe() = estudioEnLaFacultadDe.provincia()
+  method trabajaEnLasProvinciasDe() = estudioEnLaFacultadDe.provincia().asSet() // se agrego el ".asSet()"
   method honorariosPorHora() = honorariosPorHora
 
 }

@@ -13,4 +13,8 @@ class EmpresaDeServicios{
     method elProfesionalMasBarato() = contratados.min({c=>c.honorariosPorHora()}).
     method esDeGenteAcotada() = contratados.all({c => c.puedeTrabajarEnLasProvinciasDe().size() > 3 })
 
+    // etapa 2
+
+    method puedeSatisfacerAlSolicitante(unSolicitante) = contratados.any({c => unSolicitante.puedeSerAtendidoPorElProfesional(c)})
+
 }
