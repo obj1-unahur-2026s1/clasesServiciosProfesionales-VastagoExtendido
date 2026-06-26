@@ -3,18 +3,22 @@ class Persona {
     const viveEnProvinciaDe 
 
     method puedeSerAtendidoPorElProfesional(unProfesional) = unProfesional.trabajaEnLasProvinciasDe().contains(viveEnProvinciaDe)
-    
+    // method puedeSerAtendidoPor(profesionales) = profesionales.filter({p => p.provinciasDondePuedeTrabajar() == ubicacionEnProvincias})
+
 }
 
 class Institucion{
-    const universidades = []
+    const universidadesReconocidas 
 
-    method agregarLaUniversidad(unaUniversidad) {universidades.add(unaUniversidad)}
-    method puedeSerAtendidoPorElProfesional(unProfesional) = universidades.any({u => unProfesional.estudioEnLaFacultadDe(u)}) 
+    method puedeSerAtendidoPorElProfesional(unProfesional) = universidadesReconocidas.any({u => unProfesional.estudioEnLaFacultadDe(u)}) 
+    // method puedeSerAtendidoPor(profesionales) =  profesionales.filter({p => p.universidadDondeEstudiaron() == universidadesReconocidas})
+
 }
 
-class club{
+class Club{
     const ubicacionesClub 
 
     method puedeSerAtendidoPorElProfesional(unProfesional) = ubicacionesClub.any({u =>unProfesional.trabajaEnLasProvinciasDe(u)})
+    //method puedeSerAtendidoPor(profesionales) = profesionales.filter({p => p.provinciasDondePuedeTrabajar() == ubicacionEnProvincias})
+
 }

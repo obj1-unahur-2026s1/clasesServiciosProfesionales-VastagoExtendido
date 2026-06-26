@@ -1,6 +1,7 @@
 import profesionales.*
 import provincias.*
 import empresa.*
+import solicitantes.*
 
 
 
@@ -16,11 +17,11 @@ const unahur = new Universidad(provincia = buenosAires, honorariosPorHora = 8800
 
 // PROFESIONALES -----------------------------------------------------------------------------------------------------------------------
 
-const leonel = new ProfesionalUniversitarios(estudioEnLaFacultadDe = universidadSanMartin, honorariosPorHora = 2000)
-const melina = new ProfesionalLitoral(estudioEnLaFacultadDe = universidadCorrientes)
-const rocio = new ProfesionalLibre(estudioEnLaFacultadDe = unahur, honorariosPorHora = 5000, trabajaEnLasProvinciasDe = [santaFe, cordoba, buenosAires])
-const luciana = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 3200, trabajaEnLasProvinciasDe = [santaFe, entreRios])
-const daniel = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 2300, trabajaEnLasProvinciasDe = [santaFe, entreRios])
+const leonel = new ProfesionalUniversitarios(estudioEnLaFacultadDe = universidadSanMartin, honorariosPorHora = 2000, importe = 5000)
+const melina = new ProfesionalLitoral(estudioEnLaFacultadDe = universidadCorrientes, importe = 5000)
+const rocio = new ProfesionalLibre(estudioEnLaFacultadDe = unahur, honorariosPorHora = 5000, trabajaEnLasProvinciasDe = [santaFe, cordoba, buenosAires], importe = 7000)
+const luciana = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 3200, trabajaEnLasProvinciasDe = [santaFe, entreRios],  importe = 4000)
+const daniel = new ProfesionalLibre(estudioEnLaFacultadDe = universidadRosario, honorariosPorHora = 2300, trabajaEnLasProvinciasDe = [santaFe, entreRios],  importe = 10000)
 
 
 // EMPRESAS -----------------------------------------------------------------------------------------------------------------------
@@ -57,7 +58,6 @@ const naturgy = new EmpresaDeServicios(contratados = #{daniel, luciana, melina, 
     
     assert.that(naturgy.elProfesionalMasBarato() == daniel)
   }
-
 
 
 

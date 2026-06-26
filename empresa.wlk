@@ -18,3 +18,10 @@ class EmpresaDeServicios{
     method puedeSatisfacerAlSolicitante(unSolicitante) = contratados.any({c => unSolicitante.puedeSerAtendidoPorElProfesional(c)})
 
 }
+
+object asociacionLiteral {
+    var dineroRecibido = 0
+
+    method recibirDonacionDe(unMonto) {dineroRecibido += unMonto }
+
+}
